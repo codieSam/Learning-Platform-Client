@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { INcomingUserPayload } from "./type";
 interface IStudentInitialState {
     studentName: string | null,
     studentEmail: string| null,
@@ -30,9 +31,7 @@ const studentSlice = createSlice({
 
 const { setStudentName, setStudentEmail, setStudentPhone } =
   studentSlice.actions;
-  dispatch(setStudentName("Manish"))
-  dispatch(setStudentEmail("sam@gmail.com"))
-  dispatch(setStudentPhone("9864553134"))
+ 
 export { setStudentEmail, setStudentPhone, setStudentName };
 
 export default studentSlice.reducer;

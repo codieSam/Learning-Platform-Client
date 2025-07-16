@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IUserInitialState {
     name: string | null,
@@ -16,12 +16,12 @@ const userSlice = createSlice({
     name: "userSlice",
     initialState:userInitialState,
     reducers: {
-        setName(state:IUserInitialState, action){
+        setName(state:IUserInitialState, action:PayloadAction<string>){
             state.name = "Samrat"
         },
         //state: Mathi ko initial data
         //action: function trigger garda as a parameter janey data is action ho
-        setAddress(state: IUserInitialState, action){
+        setAddress(state: IUserInitialState, action:PayloadAction<string>){
             state.address = "Kathmandu"
         }
     }
