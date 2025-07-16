@@ -1,18 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface ITeachInitialState{
+    teacherName: string | null,
+    teacherPassword: string | null
+}
+const teacherInitialData : ITeachInitialState =  {
+        teacherName: null,
+        teacherPassword: null
+        
+    }
+
 const teacherSlice = createSlice({
     name: "teacherSlice",
-    initialState: {
-        teacherName: "",
-        teacherPassword: "",
-        
-    },
+    initialState: teacherInitialData,
 
     reducers : {
-        setTeacherName (state, action){
+        setTeacherName (state:ITeachInitialState, action){
             state.teacherName = "Samrat"
         },
-        setTeacherPassword (state, action){
+        setTeacherPassword (state:ITeachInitialState, action){
             state.teacherPassword = "123"
         }
     }
@@ -22,9 +28,10 @@ const teacherSlice = createSlice({
 // const teacherPassword = teacherSlice.actions.setTeacherPassword
 
 
-const {teacherName, teacherPassword} = teacherSlice.actions
+const {setTeacherName, setTeacherPassword} = teacherSlice.actions
+export {setTeacherName,setTeacherPassword}
 
-
+export default teacherSlice.reducer
 // const teacherSlice = esle diney object esto huncha jun pahila redux ma lekhnu parthyo manually but ahile pardaina !!
 
 
