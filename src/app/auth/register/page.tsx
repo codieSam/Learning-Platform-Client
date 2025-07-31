@@ -20,7 +20,7 @@ function Register() {
   }
 
   const handleRegisterSubmission = (e:FormEvent<HTMLFormElement>)=>{
-
+    //api call
   }
   return (
     <div>
