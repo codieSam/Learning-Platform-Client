@@ -13,3 +13,11 @@ export interface IInitialState{
    user: IUserData,
    status: Status
 }
+
+export interface IRegsterData extends IUserData{
+    email: string
+}
+
+export interface ILoginData  extends IUserData{
+    
+}
