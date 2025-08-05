@@ -1,6 +1,9 @@
+"use client"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider } from "react-redux";
+import store from "@/lib/store/store";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,10 +15,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Best IT learning platform ",
-  description: "Nepal's best IT learning platform",
-};
+// export const metadata: Metadata = {
+//   title: "Best IT learning platform ",
+//   description: "Nepal's best IT learning platform",
+// };
 
 export default function RootLayout({
   children,
@@ -23,14 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+   <Provider store={store}>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <h1>Thsi is navbar</h1>
+      
         {children}
-        <h1>This is footer</h1>
+          
       </body>
     </html>
+  </Provider>
   );
 }

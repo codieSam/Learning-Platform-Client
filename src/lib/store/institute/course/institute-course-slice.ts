@@ -23,13 +23,20 @@ const instituteCourseSlice = createSlice({
         setDeleteCourse(state, action:PayloadAction<string>){
             // id  --> tala bata ayeko id
            const index = state.course.findIndex(course => course.courseId = action.payload)
-           state.course.splice(index,1)// splice = cut
+           if(index != -1){ // if index fnd vayo vaney matrai kam gar (ndex = -1 , when there is not found any in index !)
+             state.course.splice(index,1)// splice = cut
+           }
+           
+          
         },
         setEditCourse(state, action:PayloadAction<any>){
             const id = action.payload.id
             const data = action.payload.data
             const index = state.course.findIndex(course => course.courseId = id )
+            if(index != -1){
             state.course[index] = data
+           }
+            
         }
         
     }

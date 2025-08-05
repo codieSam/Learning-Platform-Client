@@ -11,6 +11,6 @@ export interface IInstituteCourseInitialDataCourse{
 
 
 export interface IInstituteCourseInitialData{
-    course: IInstituteCourseInitialDataCourse,
+    course: IInstituteCourseInitialDataCourse[],
     status: Status
 }

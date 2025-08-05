@@ -7,7 +7,7 @@ import { AppDispatch } from "../store";
 const initialState:IInitialState = {
     user: {
         username: "",
-        password: ""
+        token: ""
     },
     status: Status.LOADING
 }
@@ -31,7 +31,7 @@ export default authSlice.reducer
 export function registerUser(data:IRegisterdata){
     return async function registerUserThunk(dispatch:AppDispatch){
         try{
-            const response = await API.post("auth/register", data)
+            const response = await API.post("/auth/register", data)
             if(response.status === 201){
                 // k garney tw
                 dispatch(setStatus(Status.SUCCESS))
@@ -48,9 +48,13 @@ export function registerUser(data:IRegisterdata){
 export function loginUser(data:ILoginData){
     return async function loginUserThunk(dispatch:AppDispatch){
         try{
-            const response  =await API.post("auth/login", data)
-            if(response.status === 201){
+            const response  =await API.post("/auth/login", data)
+            if(response.status === 200){
+                dispatch(setUser(response.data.data))
+                //set into localstorage
+                localStorage.setItem("token",response.data.data.token)
                 dispatch(setStatus(Status.SUCCESS))
+              
             }else{
                 dispatch(setStatus(Status.ERROR))
             }

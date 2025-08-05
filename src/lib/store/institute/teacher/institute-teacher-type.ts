@@ -24,7 +24,7 @@ export interface IInstituteTeacherInitialDataTeacher{
         }
 
   export interface IInstituteTeacherDataWithCourse extends IInstituteTeacherInitialDataTeacher{
-    course: IInstituteTeacherInitialDataTeacherCourse
+    course ?: IInstituteTeacherInitialDataTeacherCourse
   }      
 
 export interface IInstituteTeacherInitialData{
